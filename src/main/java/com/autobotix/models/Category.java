@@ -1,0 +1,98 @@
+package com.autobotix.models;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
+@Entity
+public class Category {
+     @Id
+	private String categoryCode;
+	private String categoryName;
+	private String description;
+	private String currency;
+	@ElementCollection
+	private Set<String> listOfProductCodes= new HashSet();
+	
+	public Category() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Category(String categoryCode, String categoryName, String description, Set<String> listOfProductCodes) {
+		super();
+		this.categoryCode = categoryCode;
+		this.categoryName = categoryName;
+		this.description = description;
+		this.listOfProductCodes = listOfProductCodes;
+	}
+
+	public Category(String categoryCode, String categoryName, String description) {
+		super();
+		this.categoryCode = categoryCode;
+		this.categoryName = categoryName;
+		this.description = description;
+	}
+
+	public String getCategoryCode() {
+		return categoryCode;
+	}
+
+	public void setCategoryCode(String categoryCode) {
+		this.categoryCode = categoryCode;
+	}
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+
+	public Set<String> getListOfProductCodes() {
+		return listOfProductCodes;
+	}
+
+	public void setListOfProductCodes(Set<String> listOfProductCodes) {
+		this.listOfProductCodes = listOfProductCodes;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Category [categoryCode=" + categoryCode + ", categoryName=" + categoryName + ", description="
+				+ description + ", currency=" + currency + ", listOfProductCodes=" + listOfProductCodes
+				+ "]";
+	}
+    
+	
+	
+	
+	
+}
