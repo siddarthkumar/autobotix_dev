@@ -1,5 +1,7 @@
 package com.autobotix.controllers;
 
+import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
@@ -45,6 +47,7 @@ public ResultDetails updateCategory(@RequestBody Category category)
 @PostMapping(value = "/addCategory",produces = {"application/json"},consumes = {"application/json"})
 public ResultDetails saveCategory(@RequestBody Category category)
 {
+	category.setCreated(new java.util.Date().toLocaleString());
     return service.evaluateResult(service.saveCategory(category),"SAVE");
 }
 

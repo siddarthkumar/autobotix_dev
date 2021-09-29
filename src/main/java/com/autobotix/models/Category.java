@@ -1,5 +1,6 @@
 package com.autobotix.models;
 
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -18,10 +19,11 @@ public class Category {
      @Id
 	private String categoryCode;
 	private String categoryName;
+	private String  created;
 	private String description;
 	private String currency;
 	@ElementCollection
-	private Set<String> listOfProductCodes= new HashSet();
+	private Set<String> listOfProductCodes;
 	
 	public Category() {
 		super();
@@ -83,6 +85,13 @@ public class Category {
 		this.listOfProductCodes = listOfProductCodes;
 	}
 
+	public String getCreated() {
+		return created;
+	}
+
+	public void setCreated(String created) {
+		this.created = created;
+	}
 
 	@Override
 	public String toString() {
@@ -90,9 +99,5 @@ public class Category {
 				+ description + ", currency=" + currency + ", listOfProductCodes=" + listOfProductCodes
 				+ "]";
 	}
-    
-	
-	
-	
 	
 }

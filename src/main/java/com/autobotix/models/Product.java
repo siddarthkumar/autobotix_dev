@@ -1,5 +1,7 @@
 package com.autobotix.models;
 
+import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -25,8 +27,9 @@ public class Product {
 	private String productCode;
 	private String productName;
 	private String imageUrl;
+	private String created;
 	@ElementCollection
-	private Set<String> categoryList=new HashSet<>();
+	private Set<String> categoryList;
 	private String productDescription;
 	private double productCost;
 	private CurrencyEnum currency;
@@ -143,6 +146,14 @@ public class Product {
 				+ ", categoryList=" + categoryList + ", productDescription=" + productDescription + ", productCost="
 				+ productCost + ", currency=" + currency + ", availability=" + availability + ", additionalParameters="
 				+ additionalParameters + ", stock=" + stock + "]";
+	}
+
+	public String getCreated() {
+		return created;
+	}
+
+	public void setCreated(String created) {
+		this.created = created;
 	}
 
 	

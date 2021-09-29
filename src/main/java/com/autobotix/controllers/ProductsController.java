@@ -1,5 +1,7 @@
 package com.autobotix.controllers;
 
+import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 import javax.annotation.Resource;
 import org.apache.log4j.Logger;
@@ -38,6 +40,7 @@ public class ProductsController {
 
 	@PostMapping(value = "/addProduct",produces = {"application/json"},consumes = {"application/json"})
 	public ResultDetails saveProduct(@RequestBody Product product) {
+		product.setCreated(new java.util.Date().toLocaleString());
 		return  productService.evaluateResult(productService.saveProduct(product),CrudOperations.SAVE);
 	}
 

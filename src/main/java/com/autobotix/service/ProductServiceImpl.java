@@ -64,7 +64,7 @@ public class ProductServiceImpl implements ProductService {
 	public boolean removeProduct(String code) {
 
 		try {
-			  Set<String> categoryList= repository.findById(code).get().getCategoryList();
+			 Set<String> categoryList= repository.findById(code).get().getCategoryList();
 	            if(!CollectionUtils.isEmpty(categoryList))
 	            {
 	            	for(String productCode: categoryList)

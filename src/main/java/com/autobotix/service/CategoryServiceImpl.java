@@ -34,7 +34,7 @@ Logger Log = Logger.getLogger(CategoryServiceImpl.class);
 	public boolean saveCategory(Category category) {
         
 		try {
-	            if(StringUtils.isEmpty(repository.findById(category.getCategoryCode()).get().getCategoryCode()))
+	            if(null==repository.findById(category.getCategoryCode()).orElse(null))
 	            {
 	            	if(!CollectionUtils.isEmpty(category.getListOfProductCodes()))
 	            	{
