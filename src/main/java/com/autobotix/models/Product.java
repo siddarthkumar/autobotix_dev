@@ -53,6 +53,7 @@ public class Product {
 		this.productName = productName;
 		this.productDescription = productDescription;
 		this.productCost = productCost;
+		
 	}
 
 	
