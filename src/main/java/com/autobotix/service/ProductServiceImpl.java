@@ -1,13 +1,13 @@
 package com.autobotix.service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
@@ -20,10 +20,9 @@ import com.autobotix.models.ResultDetails;
 import com.autobotix.repositories.CategoryRepository;
 import com.autobotix.repositories.ProductRepository;
 
-import jdk.internal.org.jline.utils.Log;
 @Component("productService")
 public class ProductServiceImpl implements ProductService {
-
+private static final Logger Log = Logger.getLogger(ProductService.class);
 	
 	@Autowired ProductRepository repository;
 	@Autowired CategoryRepository categoryRepo;
@@ -41,7 +40,7 @@ public class ProductServiceImpl implements ProductService {
 					categ.getListOfProductCodes().add(product.getProductCode());
 				}
 				else {
-					Set<String> prodCode = new HashSet();
+					Set<String> prodCode = new HashSet<String>();
 					prodCode.add(product.getProductCode());
 					categ.setListOfProductCodes(prodCode);
 				}

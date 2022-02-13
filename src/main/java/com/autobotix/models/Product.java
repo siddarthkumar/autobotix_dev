@@ -1,23 +1,17 @@
 package com.autobotix.models;
 
-import java.sql.Date;
-import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import javax.persistence.JoinColumn;
-import javax.persistence.CascadeType;
+
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
 import javax.persistence.MapKeyColumn;
-import javax.persistence.Table;
 
 
 @Entity
@@ -38,12 +32,12 @@ public class Product {
 	    @MapKeyColumn(name="name")
 	    @Column(name="additionalParameters")
 	    @CollectionTable(name="additional_Product_Attributes", joinColumns= {@JoinColumn(name="productCode")})
-	private Map<String,String> additionalParameters = new HashMap(); 
+	private Map<String,String> additionalParameters = new HashMap<String, String>(); 
 	  @ElementCollection(fetch = FetchType.EAGER)
 	  @MapKeyColumn(name="warehouse")
 	    @Column(name="stocks")
 	    @CollectionTable(name="stock", joinColumns= {@JoinColumn(name="productCode")})
-	private Map<String, String> stock=new HashMap();
+	private Map<String, String> stock=new HashMap<String, String>();
 	
 	public Product() {
 		super();

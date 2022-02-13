@@ -2,8 +2,6 @@ package com.autobotix.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Component;
-
 import com.autobotix.models.Product;
 import com.autobotix.models.ProductDetails;
 import com.autobotix.models.ResultDetails;
